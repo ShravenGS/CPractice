@@ -1,6 +1,5 @@
 #include<stdio.h>
 int fibo(int num,int a,int b){
-    int c;
     if(a<num){
         printf("%d ",a);
         return fibo(num,b,a+b);
