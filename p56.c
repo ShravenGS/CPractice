@@ -35,4 +35,9 @@ int main(){
             printf("%d:%d\n",a[i],b[i]);
         }
     }
+    for(i=0;i<n;i++){
+    if(b[i]==1){
+        printf("Non repeating elements are:%d",a[i]);
+        }
+    }
 }
