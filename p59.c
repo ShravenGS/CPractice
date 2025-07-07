@@ -18,7 +18,6 @@ int main(){
        printf("Invalid");
        return 0;
    }
-   pos--;
    printf("Enter the value");
    scanf("%d",&val);
    for(i=n-2;i>=pos;i--){
