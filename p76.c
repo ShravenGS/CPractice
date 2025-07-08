@@ -1,5 +1,5 @@
 #include<stdio.h>
-int uppercase(char s[]){
+void uppercase(char s[]){
     int i;
     for(i=0;s[i]!='\0';i++){
             if(s[i]>=65&&s[i]<=90){
@@ -7,7 +7,7 @@ int uppercase(char s[]){
             }
     }
 }
-int lowercase(char s[]){
+void lowercase(char s[]){
     int i;
     for(i=0;s[i]!='\0';i++){
             if(s[i]>=97&&s[i]<=122){
