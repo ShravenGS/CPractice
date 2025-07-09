@@ -32,3 +32,4 @@ int main(){
     printf("%p   \n",dp+1);
     printf("%p   \n",ldp+1);
 }
+/*p + n == p + (n × sizeof(*p))*/
