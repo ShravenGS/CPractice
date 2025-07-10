@@ -81,3 +81,20 @@ int main()
         for(i=0;i<3;i++)
         printf("%s\n",a[i]);//segmentation fault
 }
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char s[3][10] = {"Hello","Hai","Bye"};
+        char *a[ ] = {s[0],s[1],s[2]};
+        int i;
+
+        strcpy(a[0],"vector");
+        strcpy(a[1], "India");
+        strcpy(a[2],"embedded");
+
+        for(i=0;i<3;i++)
+        printf("%s\n",a[i]);
+}
+*/
