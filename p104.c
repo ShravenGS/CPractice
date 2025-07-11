@@ -5,8 +5,10 @@ int main(){
     printf("Enter number of rows and columns");
     scanf("%d %d",&r,&c);
     a=(int **)malloc(r*sizeof(int *));
+    //a=(int **)calloc(n,sizeof(int*));
     for(i=0;i<r;i++){
         a[i]=(int *)malloc(c*sizeof(int));
+        //a[i]=(int *)calloc(n,sizeof(int));
     }
     if(a==NULL){
         printf("Memeory allocation failed");
