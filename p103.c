@@ -5,6 +5,7 @@ int main(){
     printf("Enter number of elements");
     scanf("%d",&n);
     a=(int *)malloc(n*sizeof(int));
+    //a=(int *)calloc(n,sizeof(int));
     if(a==NULL){
         printf("Memeory allocation failed");
         return 1;
