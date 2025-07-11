@@ -25,17 +25,20 @@ void name(int x){
                 break;
     }
 }
+int reverse(int num,int rev){
+    if(num!=0){
+        return reverse(num/10,rev*10+(num%10));
+    }
+    else{
+        return rev;
+    }
+}
 int main(){
-    int x,num,rev=0,temp,rem;
+    int x,num,rev,temp,rem;
     
     printf("Enter any number");
     scanf("%d",&num);
-    temp=num;
-    while(temp!=0){
-        x=temp%10;
-        rev=rev*10+x;
-        temp/=10;
-    }
+    rev=reverse(num,0);
     printf("The number entered is:");
     while(rev!=0){
         rem=rev%10;
