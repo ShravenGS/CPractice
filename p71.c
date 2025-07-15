@@ -14,7 +14,6 @@ int string_compare2(char dest[],char src[],int n){
         if(dest[i]!=src[i]){
             return dest[i]-src[i];
         }
-    }
     if(i==n){
         return 0;
     }
