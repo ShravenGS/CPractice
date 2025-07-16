@@ -9,6 +9,7 @@ void print(struct student *p,int size){
      printf("--------------The entered data is------------\n");
    for(i=0;i<size;i++){
        printf("|%d| |%s| |%.2f|\n",(p+i)->rollNo,(p+i)->name,(p+i)->marks);
+       //printf("|%d| |%s| |%.2f|\n",p[i].rollNo,p[i].name,p[i].marks);
    }
 }
 void scan(struct student *p,int size){
