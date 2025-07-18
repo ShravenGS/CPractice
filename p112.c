@@ -1,3 +1,16 @@
+/*#include <stdio.h>
+struct data{
+    int i;
+    float f;
+    char c;
+    double d;
+};
+int main(){
+    struct data d;
+    printf("%lu",sizeof(d));
+}
+*/
+
 #include<stdio.h>
 struct student{
     int rollNo;
