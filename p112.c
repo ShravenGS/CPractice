@@ -4,7 +4,7 @@ struct data{
     float f;
     char c;
     double d;
-};
+};//Size of structure is more as compared to unions
 int main(){
     struct data d;
     printf("%lu",sizeof(d));
