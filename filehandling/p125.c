@@ -24,5 +24,5 @@ int main(int argc,char *argv[]){
                         fclose(src);
                         fclose(dest);
                         printf("Completed\n");
-                        }
+               }
 
