@@ -1,3 +1,4 @@
+/*Copying contents of a textfile from src to single or multiple destination*/
 #include<stdio.h>
 int main(int argc,char *argv[]){
                 FILE *src,*dest;
