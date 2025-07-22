@@ -1,3 +1,4 @@
+/*Changing from uppercase to lowercase and vice versa*/
 #include<stdio.h>
 int main(){
         FILE *src,*dest;
