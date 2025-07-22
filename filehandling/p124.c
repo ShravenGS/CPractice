@@ -1,3 +1,4 @@
+/*Removing line in a file*/
 #include<stdio.h>
 int main(){
         FILE *src,*dest;
