@@ -25,6 +25,9 @@ void scan(struct student *p,int size){
 int main(){
    struct student s[2];
    struct student *p=s;
+    /* struct student s[2];
+   struct student *p;
+   p=s;*/
    int i;
     scan(p,2);
    print(p,2);
