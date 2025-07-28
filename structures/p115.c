@@ -4,7 +4,7 @@ struct student{
     float marks;
 };
 int main(){
-    struct student s[3],topper;
+    struct student s[3],topper;//Defining a new structure inside structure is also valid in this case 
     int i;
     for(i=0;i<3;i++){
         printf("Enter the name and marks for student:");
