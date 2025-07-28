@@ -2,7 +2,7 @@
 struct student{
     int rollNo;
     char name[50];
-    float marks;
+    float marks;        //Members of structures
 };
 int main(){
     struct student s1={51,"Shraven",80.5};
