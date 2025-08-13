@@ -1,6 +1,6 @@
 #include<stdio.h>
 int main(){
-	FILE *fp=fopen("input.txt","r");
+	FILE *fp=fopen("input.txt","w");
 	if(!fp){
 		printf("File does not exist");
 		return 1;
