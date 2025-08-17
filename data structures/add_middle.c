@@ -9,7 +9,7 @@ void add_middle(struct st **ptr){
 	printf("Enter the data");
 	scanf("%d",&temp->data);
 	if((*ptr==NULL)||(temp->data<(*ptr)->data)){
-		temp->next=NULL;
+		temp->next=*ptr;
 		*ptr=temp;
 	}
 	else{
