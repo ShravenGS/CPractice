@@ -1,33 +1,27 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int main(){
-	char ch,search[100];
-	int count=0,bigline_len=0;
-	FILE *fs;
-	fs=fopen("input.txt","r");
-	
-	printf("Word search:");
-	scanf("%s",search);
+int main() {
+    char search[100];
+    char line[1000];
+    FILE *fs;
 
-	while((ch=fgetc(fs))!=EOF){
-		++count;
-		if(ch=='\n'){
-			if(count>bigline_len){
-				bigline_len=count;
-			}
-			count=0;
-		}
-	}
-	rewind(fs);
+    fs = fopen("input.txt", "r");
+    if (fs == NULL) {
+        printf("Error: could not open file\n");
+        return 1;
+    }
 
-	char *a=malloc(bigline_len*sizeof(char));
-	while((fgets(a,bigline_len,fs))!=NULL){
-		if((strstr(a,search))!=NULL){
-			printf("%s",a);
-		}
-	}
-fclose(fs);
+    printf("Word search: ");
+    scanf("%s", search);
+
+    while (fgets(line, sizeof(line), fs) != NULL) {
+        if (strstr(line, search) != NULL) {
+            printf("%s", line);
+        }
+    }
+
+    fclose(fs);
+    return 0;
 }
-
