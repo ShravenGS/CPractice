@@ -1,67 +1,47 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-int string_length(char s[]){
-	int i,len=0;
-	for(i=0;s[i]!='\0';i++){
-		len++;
-	}
-	return len;
+void reverse(char *s) {
+    int i, j;
+    char t;
+    for (i = 0, j = strlen(s) - 1; i < j; i++, j--) {
+        t = s[i];
+        s[i] = s[j];
+        s[j] = t;
+    }
 }
 
-void string_reverse(char o[],char r[]){
-	int len=string_length(o),i;
-	for(i=0;i<len;i++){
-		r[i]=o[len-i-1];
-	}
-	r[len]='\0';
-}
+int main() {
+    FILE *src = fopen("input.txt", "r");
+    FILE *dest = fopen("output.txt", "w");
+    char word[100];
+    int c, i = 0;
 
-int main(){
-	FILE *src,*dest;
-	char ch;
-	char word[100],reversed[100];
-	int index=0;
+    if (!src || !dest) return 1;
 
-	src=fopen("input.txt","r");
-	if(src==NULL){
-		printf("Error opening file");
-		return 1;
-	}
-
-	dest=fopen("output.txt","w");
-        if(dest==NULL){
-                printf("Error opening file");
-                return 1;
+    while ((c = fgetc(src)) != EOF) {
+        if (c == ' ' || c == '\n' || c == '\t') {
+            if (i > 0) {
+                word[i] = '\0';
+                reverse(word);
+                fputs(word, dest);
+                i = 0;
+            }
+            fputc(c, dest);
+        } else {
+            word[i++] = c;
         }
-	
-	while((ch=fgetc(src))!=EOF){
-		if(ch!=' '&&ch!='\n'&&ch!='\t'){
-			word[index++]=ch;//build word
-		}
+    }
 
-		else{
-			if(index>0){
-				word[index]='\0';
-				string_reverse(word,reversed);
-				fputs(reversed,dest);
-				index=0;
-			}
-			fputc(ch,dest);
-		}
-	}
+    if (i > 0) {
+        word[i] = '\0';
+        reverse(word);
+        fputs(word, dest);
+    }
 
-	if(index>0){
-               word[index]='\0';
-               string_reverse(word,reversed);
-               fputs(reversed,dest);
-	}
-
-	fclose(src);
-	fclose(dest);
-
-	printf("Completed\n");
-	return 0;
+    fclose(src);
+    fclose(dest);
+    return 0;
 }
 
 
