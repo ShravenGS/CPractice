@@ -1,13 +1,21 @@
-#include<stdio.h>
-int main(){
-	unsigned int num,i,rev=0;
-	printf("Enter the number");
-	scanf("%u",&num);
-	for(i=0;i<=31;i++){
-		rev=rev<<1;
-		rev|=(num&1);
-		num=num>>1;
-	}
-	printf("Reversed number:%u",rev);
-}
+#include <stdio.h>
 
+int main() {
+    unsigned int num;
+    printf("Enter the number: ");
+    scanf("%u", &num);
+
+    // reverse bits using for loop
+    for (int left = 31, right = 0; left > right; left--, right++) {
+        int lbit = (num >> left) & 1;   
+        int rbit = (num >> right) & 1;  
+
+        if (lbit != rbit) {             
+            num ^= (1 << left);
+            num ^= (1 << right);
+        }
+    }
+
+    printf("Reversed number: %u\n", num);
+    return 0;
+}
