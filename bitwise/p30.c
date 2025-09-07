@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int main() {
     unsigned int num;
     printf("Enter the number: ");
@@ -15,7 +14,6 @@ int main() {
             num ^= (1 << right);
         }
     }
-
     printf("Reversed number: %u\n", num);
     return 0;
 }
