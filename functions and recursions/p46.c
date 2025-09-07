@@ -2,7 +2,7 @@
 #include<math.h>
 int count(int num,int digit){
     if(num!=0){
-        return count(num/=10,digit+1);
+        return count(num/10,digit+1);
     }
     else{
         return digit;
