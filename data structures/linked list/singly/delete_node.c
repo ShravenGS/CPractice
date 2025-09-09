@@ -54,6 +54,8 @@ void delete(struct st **ptr,int n){
         if(temp->data==n){
             if(*ptr==temp){
                 *ptr=temp->next;
+                free(temp);
+                return;
             }
             else{
                 prev->next=temp->next;
