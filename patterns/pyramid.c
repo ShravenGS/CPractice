@@ -1,14 +1,14 @@
 #include<stdio.h>
 int main(){
-    int i,j,k,rows=5,s=1;
+    int rows=5,i,space,j,num;
     for(i=0;i<rows;i++){
-        for(j=0;j<=2*(rows-i)-1;j++){
-                printf(" ");
+        for(space=1;space<=rows-i;space++){
+            printf(" ");
         }
-        for(k=0;k<2*i+1;k++){
+        for(j=0;j<=i;j++){
             printf("* ");
         }
-        printf("\n");
+         printf("\n");
     }
-    return 0;
+   
 }
