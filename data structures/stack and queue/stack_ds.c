@@ -7,7 +7,7 @@ struct st{
 void push(struct st **top){
     struct st *temp=(struct st *)malloc(sizeof(struct st));
     if(temp==NULL){
-        printf("Memeory allocation failed...\n");
+        printf("Memory allocation failed...\n");
         return;
     }
     printf("Enter an element to push:");
