@@ -18,7 +18,7 @@ int main(){
             i--;
         }
     }
-    printf("Array after removing primes:\n");
+    printf("Array after removing odd numbers:\n");
     for(i=0;i<n;i++){
         printf("%d ",arr[i]);
     }
