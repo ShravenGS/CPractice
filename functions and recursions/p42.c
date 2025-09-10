@@ -1,9 +1,8 @@
 #include<stdio.h>
 int factorial(int n,int i,int fact){
     if(i<=n){
-        fact*=i;
-        i++;
-        return factorial(n,i,fact);
+        
+        return factorial(n,i+1,fact*i);
     }
     else{
         return fact;
