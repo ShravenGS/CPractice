@@ -1,45 +1,37 @@
 #include<stdio.h>
-#include<stdlib.h>
-int main(){
-	FILE *src, *dest[10];//Max 10 files can we copied
-	char destNames[10][100];
-	int n,i,j;
+int main(int argc,char *argv[]){
 	char ch;
-
-	src=fopen("input.txt","r");
-	if(src==NULL){
-		printf("Error opening source file");
+	int choice;
+	char str[20];
+	if(argc<3){
+		printf("Usage ./a.out");
+		return 0;
+	}
+	FILE* fs=fopen(argv[1],"r");
+	if(fs==NULL){
+		printf("No source file available");
 		return 1;
 	}
 
-	printf("Enter the number of destination files:");
-	scanf("%d",&n);
+	int i;
+	for(i=2;i<argc;i++){
+		FILE *fp;
 
-	for(i=0;i<n;i++)
-	{
-		printf("Enter name of destination file:");
-		scanf("%s",destNames[i]);
-		dest[i]=fopen(destNames[i],"w");
-		if(dest[i]==NULL){
-			printf("Cannot create a file");
-			fclose(src);
-
-			for(j=0;j<i;j++){
-				fclose(dest[j]);
+		fp=fopen(argv[i],"r");
+		if(fp!=NULL){
+			fclose(fp);
+			printf("File exist. Overwrite(1/0)");
+			scanf("%d",&choice);
+			if(choice!=1){
+				printf("Skipped");
+				continue;
 			}
-			return 1;
 		}
-	}
-
-	while((ch=fgetc(src))!=EOF){
-		for(i=0;i<n;i++){
-			fputc(ch,dest[i]);
+		fp=fopen(argv[i],"w");
+		while((ch=fgetc(fs))!=EOF){
+			fputc(ch,fp);
 		}
+		fclose(fp);
+		rewind(fs);
 	}
-	fclose(src);
-	for(i=0;i<n;i++){
-		fclose(dest[i]);
-	}
-	printf("Completed\n");
-	return 0;
 }
