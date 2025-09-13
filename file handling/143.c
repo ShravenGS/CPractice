@@ -1,25 +1,60 @@
-#include <stdio.h>
-#include <string.h>
+#include<stdio.h>
+#include<string.h>
+#define MAX 100
+int main(){
+	FILE *src,*temp;
+	int i,j;
+	char search[MAX],replace[MAX],word[MAX];
 
-int main() {
-    FILE *src, *temp;
-    char word[100], replace[100], buffer[100];
+	printf("Enter the word:");
+	scanf("%s",search);
 
-    scanf("%s", word);
-    scanf("%s", replace);
+	printf("Enter the replacement word:");
+	scanf("%s",replace);
 
-    src = fopen("input.txt", "r");
-    temp = fopen("output.txt", "w");
-    if (!src || !temp) return 1;
+	src=fopen("data.txt","r");
+	temp=fopen("temp.txt","w");
+	if(!src||!temp){
+		printf("Error opening file\n");
+		return 1;
+	}
 
-    while (fscanf(src, "%99s", buffer) == 1) {
-        if (strcmp(buffer, word) == 0)
-            fprintf(temp, "%s ", replace);
-        else
-            fprintf(temp, "%s ", buffer);
-    }
+	char ch;
+	i=0;
+	while((ch=fgetc(src))!=EOF){
+		if(ch==' '||ch=='\n'){
+			word[i]='\0';
 
-    fclose(src);
-    fclose(temp);
-    return 0;
+		if(strcmp(word,search)==0){
+			fputs(replace,temp);
+		}
+		else{
+			fputs(word,temp);
+		}
+		fputc(ch,temp);
+		i=0;
+		}
+
+		else{
+			word[i++]=ch;
+		}
+	}
+
+	if(i>0){
+		word[i]='\0';
+
+                if(strcmp(word,search)==0){
+                        fputs(replace,temp);
+                }
+                else{
+                        fputs(word,temp);
+                }
+	}
+
+	fclose(src);
+	fclose(temp);
+	remove("data.txt");
+	rename("temp.txt","data.txt");
+
+	return 0;
 }
