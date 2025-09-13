@@ -1,49 +1,54 @@
-#include <stdio.h>
-#include <string.h>
-
-void reverse(char *s) {
-    int i, j;
-    char t;
-    for (i = 0, j = strlen(s) - 1; i < j; i++, j--) {
-        t = s[i];
-        s[i] = s[j];
-        s[j] = t;
-    }
+#include<stdio.h>
+#include<string.h>
+void reverse(char str[]){
+	int len=strlen(str);
+	int i;
+	char t;
+	for(i=0;i<len/2;i++){
+		t=str[i];
+		str[i]=str[len-1-i];
+		str[len-i-1]=t;
+	}
 }
+#define MAX 100
 
-int main() {
-    FILE *src = fopen("input.txt", "r");
-    FILE *dest = fopen("output.txt", "w");
-    char word[100];
-    int c, i = 0;
+int main(){
+	FILE *src,*dest;
+	int i,j;
+	char word[MAX];
+	src=fopen("data.txt","r");
+	dest=fopen("output.txt","w");
+	if(!src||!dest){
+		printf("Error opening file\n");
+		return 1;
+	}
 
-    if (!src || !dest) return 1;
+	char ch;
+	i=0;
+	while((ch=fgetc(src))!=EOF){
+		if(ch==' '||ch=='\n'||ch=='\t'){
+			if(i>0){
+			word[i]='\0';
+			reverse(word);
+			fputs(word,dest);
+			i=0;
+			}
+			fputc(ch,dest);
+		}
 
-    while ((c = fgetc(src)) != EOF) {
-        if (c == ' ' || c == '\n' || c == '\t') {
-            if (i > 0) {
-                word[i] = '\0';
+		else{
+			word[i++]=ch;
+		}
+	}
+
+	if(i>0){
+		word[i]='\0';
                 reverse(word);
-                fputs(word, dest);
-                i = 0;
-            }
-            fputc(c, dest);
-        } else {
-            word[i++] = c;
-        }
-    }
+                fputs(word,dest);
+	}
 
-    if (i > 0) {
-        word[i] = '\0';
-        reverse(word);
-        fputs(word, dest);
-    }
 
-    fclose(src);
-    fclose(dest);
-    return 0;
+	fclose(src);
+	fclose(dest);
+	return 0;
 }
-
-
-
-
