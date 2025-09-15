@@ -1,12 +1,12 @@
 #include<stdio.h>
 int string_lastocc(char s[],char ch){
-    int count=0,i;
+    int i,count=-1;
     for(i=0;s[i]!='\0';i++){
         if(s[i]==ch){
-            count++;
+            count=i;
         }
     }
-return count;
+    return count;
 }
 int string_firstocc(char s[],char ch){
     int i;
