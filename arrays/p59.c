@@ -20,7 +20,7 @@ int main(){
    }
    printf("Enter the value");
    scanf("%d",&val);
-   for(i=n-2;i>=pos;i--){
+   for(i=n-1;i>=pos;i--){
        a[i+1]=a[i];
    }
    a[pos]=val;
