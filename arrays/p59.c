@@ -23,7 +23,8 @@ int main(){
    for(i=n-1;i>=pos;i--){
        a[i+1]=a[i];
    }
-   a[pos]=val;
+   a[pos-1]=val;
+   n++;
     printf("\nNow the elements are-->\n");
    for(i=0;i<n;i++){
         printf("%d ",a[i]);
