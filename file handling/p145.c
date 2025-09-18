@@ -22,9 +22,7 @@ int main(int argc, char *argv[]){
 			found=1;
 		}
 		
-		if(found!=1){
-			printf("String does not exist");
-	}
 	fclose(fp);
 }
+	return found?1:0;
 }
