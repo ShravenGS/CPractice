@@ -1,16 +1,22 @@
-#include<stdio.h>
-int my_Atoi(int num){
-        int i=0,res=0;
-        while(num!='\0'){
-            if(num>='0'&&num<='9'){
-                        res=res*10+(num-'0');
+int my_Atoi(char str[]){
+        int i=0,res=0,sign=1;
+        if(str[0]=='-'){
+                sign=-1;
+                i++;
+        }
+        else if (str[0]=='+'){
+                i++;
+        }
+        while(str[i]!='\0'){
+            if(str[i]>='0'&&str[i]<='9'){
+                        res=res*10+(str[i]-'0');
                 }
             else{
                     printf("Invalid character");
             }
             i++;
         }
-        return res;
+        return res*sign;
 }
 int main(int argc,char *argv[]){
         int k;
