@@ -21,8 +21,7 @@ int main(int argc, char *argv[]){
 			printf("%d %s",line_num,line);
 			found=1;
 		}
-		
-	fclose(fp);
 }
+	fclose(fp);
 	return found?1:0;
 }
