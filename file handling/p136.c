@@ -17,7 +17,7 @@ int main(){
 	}
 
 	while((ch=fgetc(src))!=EOF){
-		if(ch>='a'&&ch>='z'){
+		if(ch>='a'&&ch<='z'){
 			ch=ch-32;
 		}
 
