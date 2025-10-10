@@ -23,3 +23,18 @@ int main(){
     string_reverse(str1,str2);
     printf("The reverse of the string is:%s",str2);
 }
+
+
+/*Recursion method
+#include<stdio.h>
+#include<string.h>
+void string_reverse(int i,char o[],char r[]){
+    int len=strlen(o);
+    if(i<len){
+	r[i]=o[len-i-1];
+	string_reverse(i+1,o,r);
+	}
+	else{
+    r[len]='\0';
+	}
+}*/
