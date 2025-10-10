@@ -21,7 +21,7 @@ int main(){
    for(i=pos;i<n-1;i++){
        a[i]=a[i+1];
    }
-   a[n-1]=0;
+   n--;
     printf("\nNow the elements are-->\n");
    for(i=0;i<n;i++){
         printf("%d ",a[i]);
